@@ -1,13 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Education.Web.Models
+namespace Education.BL
 {
-    public class AlumnoModel
+    public class Alumno
     {
         public int Id { get; set; }
         public string Descripcion { get; set; }
+        public double RNE { get; set; }
+        
     }
 }
