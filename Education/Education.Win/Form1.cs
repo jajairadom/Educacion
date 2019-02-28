@@ -16,17 +16,16 @@ namespace Education.Win
         public Form1()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-           var alumnosBL = new AlumnosBL();
+            var alumnosBL = new AlumnosBL();
             var listadeAlumnos = alumnosBL.ObtenerAlumnos();
 
-            foreach (var alumno in listadeAlumnos)
-            {
-                MessageBox.Show(alumno.Descripcion);
-            }
+            listadeAlumnosBindingSource.DataSource = listadeAlumnos;
+        }
+
+        
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
