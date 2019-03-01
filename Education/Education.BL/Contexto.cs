@@ -22,5 +22,6 @@ namespace Education.BL
         }
 
         public DbSet<Alumno> Alumnos { get; set; }
+       public DbSet<Categoria> Categorias { get; set; }
     }
 }

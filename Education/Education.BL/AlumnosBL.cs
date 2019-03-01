@@ -20,7 +20,43 @@ namespace Education.BL
         {
 
             ListadeAlumnos = _contexto.Alumnos.ToList();
+               
+         
             return ListadeAlumnos; 
         }
+
+        public void GuardarAlumno(Alumno alumno)
+        {
+            if(alumno.Id == 0)
+            {
+                _contexto.Alumnos.Add(alumno);
+            }else
+            {
+                var alumnoExistente = _contexto.Alumnos.Find(alumno.Id);
+
+                alumnoExistente.Descripcion = alumno.Descripcion;
+    
+                alumnoExistente.RNE = alumno.RNE;
+            }
+     
+            _contexto.SaveChanges();
+        }
+
+        public Alumno ObtenerAlumno(int id)
+        {
+            var alumno = _contexto.Alumnos.Find(id);
+                
+            return alumno;
+        }
+
+        public void EliminarAlumno(int id)
+        {
+            var alumno = _contexto.Alumnos.Find(id);
+
+            _contexto.Alumnos.Remove(alumno);
+            _contexto.SaveChanges();
+        }
+
+
     }
 }
