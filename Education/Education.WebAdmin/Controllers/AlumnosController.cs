@@ -30,7 +30,7 @@ namespace Education.WebAdmin.Controllers
            var nuevoAlumno = new Alumno();
             var Categorias = _categoriasBL.ObtenerCategorias();
 
-            ViewBag.ListaCategorias = new SelectList(Categorias, "Id", "Descripcion");
+            ViewBag.CategoriaId = new SelectList(Categorias, "Id", "Descripcion");
 
             return View(nuevoAlumno);
         }
