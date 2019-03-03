@@ -19,7 +19,9 @@ namespace Education.BL
         public List<Alumno> ObtenerAlumnos()
         {
 
-            ListadeAlumnos = _contexto.Alumnos.ToList();
+            ListadeAlumnos = _contexto.Alumnos
+                .Include("Categoria")
+                .ToList();
                
          
             return ListadeAlumnos; 
@@ -34,9 +36,9 @@ namespace Education.BL
             {
                 var alumnoExistente = _contexto.Alumnos.Find(alumno.Id);
 
-                alumnoExistente.Descripcion = alumno.Descripcion;
-    
-                alumnoExistente.RNE = alumno.RNE;
+                alumnoExistente.NombreAlumno = alumno.NombreAlumno;
+                alumnoExistente.CategoriaId = alumno.CategoriaId;
+                alumnoExistente.RTN = alumno.RTN;
             }
      
             _contexto.SaveChanges();
@@ -44,7 +46,8 @@ namespace Education.BL
 
         public Alumno ObtenerAlumno(int id)
         {
-            var alumno = _contexto.Alumnos.Find(id);
+            var alumno = _contexto.Alumnos
+                .Include("Categoria").FirstOrDefault(p => p.Id == id);
                 
             return alumno;
         }

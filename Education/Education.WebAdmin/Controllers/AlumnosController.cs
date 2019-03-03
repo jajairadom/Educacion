@@ -10,12 +10,12 @@ namespace Education.WebAdmin.Controllers
     public class AlumnosController : Controller
     {
         AlumnosBL _alumnosBL;
-      
+        CategoriasBL _categoriasBL;
 
         public AlumnosController()
         {
             _alumnosBL = new AlumnosBL();
-           
+            _categoriasBL = new CategoriasBL();
         }
 
 
@@ -28,7 +28,10 @@ namespace Education.WebAdmin.Controllers
         public ActionResult Crear()
         {
            var nuevoAlumno = new Alumno();
-            
+            var Categorias = _categoriasBL.ObtenerCategorias();
+
+            ViewBag.ListaCategorias = new SelectList(Categorias, "Id", "Descripcion");
+
             return View(nuevoAlumno);
         }
 
@@ -43,7 +46,10 @@ namespace Education.WebAdmin.Controllers
         public ActionResult Editar(int id)
         {
            var alumno = _alumnosBL.ObtenerAlumno(id);
-           
+            var categorias = _categoriasBL.ObtenerCategorias();
+
+            ViewBag.CategoriaId =
+                new SelectList(categorias, "Id", "Descripcion", alumno.CategoriaId);
             return View(alumno);
         }
 

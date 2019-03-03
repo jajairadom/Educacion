@@ -13,8 +13,9 @@ namespace Education.BL
             Activo = true;
         }
         public int Id { get; set; }
-        public string Descripcion { get; set; }
-        public double RNE { get; set; }
+        public string NombreAlumno { get; set; }
+        public double RTN { get; set; }
+        public int CategoriaId { get; set; }
         public Categoria Categoria { get; set; }
         public bool Activo { get; set; }
     }

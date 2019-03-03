@@ -11,19 +11,27 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Descripcion)
+            @Html.DisplayNameFor(model => model.NombreAlumno)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Descripcion)
+            @Html.DisplayFor(model => model.NombreAlumno)
         </dd>
        
         <dt>
-            @Html.DisplayNameFor(model => model.RNE)
+            @Html.DisplayNameFor(model => model.Categoria.Descripcion)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.RNE)
+            @Html.DisplayFor(model => model.Categoria.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RTN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RTN)
         </dd>
 
     </dl>
